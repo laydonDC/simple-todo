@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Container } from './styles';
 
 function Todo() {
   return (
-    <div>This is the Todo Component</div>
+    <Container>
+        <h2>List of Todos</h2>
+        {/*Form Component*/}
+        {/*TodoList*/}
+        {/*Legend*/}
+        {/*Author Component*/}
+    </Container>
   )
 }
 
