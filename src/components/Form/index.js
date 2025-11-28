@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormContainer, Input, Button } from './styles'
-function Form({ input, setInput }) {
+function Form({ input, setInput, addTodo }) {
   return (
     <FormContainer>
       <Input 
@@ -8,8 +8,8 @@ function Form({ input, setInput }) {
         onChange={(e) => setInput(e.target.value)} 
         type='text' 
         role='input' />
-      <Button type="submit">Add</Button></FormContainer>
+      <Button type="submit" onClick={(e)=> addTodo(e)}>Add</Button></FormContainer>
   )
 }
 
-export default Form
+export default Form 
