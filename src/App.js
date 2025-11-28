@@ -1,10 +1,11 @@
 import './App.css';
 import Todo from './components/Todo';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
     <div className="App">
-     <h1>Welcome to  Simple Todo list App</h1>
+     <TopBar />
      <Todo />
     
     </div>

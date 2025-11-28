@@ -1,9 +1,12 @@
 .App {
   margin: 0;
-  padding: 50px 20px; /* reduce horizontal padding on small screens */
+  padding: 0 20px; /* horizontal padding for content only */
   background-color: #3DA5D9;
   font-weight: 500;
   font-size: 1.2rem;
-  min-height: 100vh;       /* ensures app is at least full screen */
-  box-sizing: border-box;  /* include padding in height calculations */
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center todo container horizontally */
 }
