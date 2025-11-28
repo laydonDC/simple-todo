@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ListContainer, Row, Text, DeleteIcon } from './styles';
 import axios from '../../axios';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 function TodoList({ todos, fetchData }) {
     // Local state for instant UI updates
     const [todoList, setTodoList] = useState([]);
@@ -43,7 +44,9 @@ function TodoList({ todos, fetchData }) {
                     <Text onClick={() => updateTodo(todo._id)} isCompleted={todo.completed}>
                         {todo.text}
                     </Text>
-                    <DeleteIcon onClick={() => deleteTodo(todo._id)}>X</DeleteIcon>
+                    <DeleteIcon onClick={() => deleteTodo(todo._id)}>
+                        <FontAwesomeIcon icon={faTrash} />
+                    </DeleteIcon>
                 </Row>
             ))}
         </ListContainer>
