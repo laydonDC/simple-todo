@@ -2,11 +2,12 @@ import React from 'react';
 import { Container } from './styles';
 import Form from '../Form';
 import axios from '../../axios';
+import TodoList from '../TodoList';
 
 function Todo() {
   const [input, setInput] = React.useState('');
   const [todos, setTodos] = React.useState([]);
-  console.log(input, "input value");
+  //console.log(input, "input value");
 
   const fetchData = async () => {
     try {
@@ -34,13 +35,12 @@ function Todo() {
       completed: false,
     }]);
 
-    
+
     fetchData();
     setInput('');
     console.log("addTodo called");
   }
 
-  console.log(todos, "todos value");
 
   return (
     <Container>
@@ -48,6 +48,7 @@ function Todo() {
       {/*Form Component*/}
       <Form input={input} setInput={setInput} addTodo={addTodo} />
       {/*TodoList*/}
+      <TodoList todos={todos} fetchData={fetchData} />
       {/*Legend*/}
       {/*Author Component*/}
     </Container>
