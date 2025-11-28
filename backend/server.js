@@ -12,6 +12,8 @@ const port = process.env.PORT || 8000;
 
 const connectionURL = process.env.MONGO_URI;
 
+const { getTodos, createTodo, updateTodo, deleteTodo} = require("./controllers/todoController");
+
 //Middleware
 
 //Convert to json
@@ -27,6 +29,17 @@ mongoose.connect(connectionURL)
 
 //API Endpoints (CRUD)
 
+// Get todos list
+app.get('/todos', getTodos)
+
+// Create todo
+app.post('/todos', createTodo)
+
+// Update todo by id    
+app.put('/todos/:id', updateTodo)
+
+// Delete todo by id
+app.delete('/todos/:id', deleteTodo)
 
 
 
