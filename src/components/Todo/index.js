@@ -3,6 +3,8 @@ import { Container } from './styles';
 import Form from '../Form';
 import axios from '../../axios';
 import TodoList from '../TodoList';
+import Legend from '../Legend';
+import Author from '../Author';
 
 function Todo() {
   const [input, setInput] = React.useState('');
@@ -50,7 +52,9 @@ function Todo() {
       {/*TodoList*/}
       <TodoList todos={todos} fetchData={fetchData} />
       {/*Legend*/}
+      <Legend />
       {/*Author Component*/}
+      <Author />
     </Container>
   )
 }
