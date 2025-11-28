@@ -9,6 +9,7 @@ export const LegendContainer = styled.ul`
   border: 1px solid #ef7360;
   padding: 5px;
   border-radius: 8px;
+  space-between: 10px;
 
   @media (max-width: 420px) {
     flex-direction: column;
@@ -23,6 +24,9 @@ export const BulletPoint = styled.li`
   padding: 8px 12px;
   text-align: center;
   min-width: 60px;
+  width: 50%;
+  margin: 5px 5px;   
+  box-sizing: border-box; 
 
   @media (max-width: 420px) {
     width: 100%;

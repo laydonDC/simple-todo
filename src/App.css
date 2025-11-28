@@ -1,9 +1,9 @@
 .App {
   margin: 0;
-  padding: 50px;
-  background-color:   #3DA5D9;
+  padding: 50px 20px; /* reduce horizontal padding on small screens */
+  background-color: #3DA5D9;
   font-weight: 500;
   font-size: 1.2rem;
-  height: 100vh;
+  min-height: 100vh;       /* ensures app is at least full screen */
+  box-sizing: border-box;  /* include padding in height calculations */
 }
-

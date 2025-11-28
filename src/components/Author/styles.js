@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AuthorContainer = styled.span`
-    font-size: 1.6rem;
+    font-size: 0.8rem;
 
     a {
         cursor: pointer;
