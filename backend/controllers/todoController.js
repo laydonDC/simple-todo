@@ -54,8 +54,8 @@ const updateTodo = async (req, res) => {
 
 // Delete todo by id 
 const deleteTodo = async (req, res) => {
-    const {id} = req.params.id;
-    const updatedTodo = req.body;
+    const id = req.params.id;
+    console.log("deleteTodo called in controller", id);
 
     try {
         // check if id is valid
