@@ -1,55 +1,53 @@
-import React from 'react'
-import { ListContainer, Row, Text, DeleteIcon } from './styles'
+import React, { useState, useEffect } from 'react';
+import { ListContainer, Row, Text, DeleteIcon } from './styles';
 import axios from '../../axios';
 
 function TodoList({ todos, fetchData }) {
-    console.log(todos, "todos in Todolist component");
+    // Local state for instant UI updates
+    const [todoList, setTodoList] = useState([]);
 
+    // Update local state when parent todos change
+    useEffect(() => {
+        setTodoList(todos);
+    }, [todos]);
+
+    // Toggle completion
     const updateTodo = async (id) => {
-        //console.log("updateTodo called in Todolist component", id);
         try {
-            const response = await axios.put(`todos/${id}`, {
-                id
-            })
-            fetchData();
-            console.log(response.data, "updated todo");
-            return response.data.json;
+            await axios.put(`todos/${id}`); // backend handles the toggle
+            // Update local state immediately
+            setTodoList(todoList.map(todo =>
+                todo._id === id ? { ...todo, completed: !todo.completed } : todo
+            ));
+            fetchData(); // optional: refresh from backend
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
 
+    // Delete todo
     const deleteTodo = async (id) => {
-        //console.log("updateTodo called in Todolist component", id);
         try {
-            const response = await axios.delete(`todos/${id}`, {
-                id
-            })
-            fetchData();
-            console.log(response.data, "deleted todo");
-            return response.data.json;
+            await axios.delete(`todos/${id}`);
+            setTodoList(todoList.filter(todo => todo._id !== id)); // remove from local state
+            fetchData(); // optional: refresh from backend
         } catch (error) {
             console.log(error.message);
         }
-    }
-
+    };
 
     return (
-        <div>
-            <ListContainer>
-                {/* Render the list of todos here */}
-                {todos?.map((todo) => (
-                    <Row key={todo._id}>
-                        <Text onClick={() => updateTodo(todo._id)} isCompleted={todo.completed}> 
-                            {todo.text}
-                        </Text>
-                        <DeleteIcon onClick={() => deleteTodo(todo._id)}>X</DeleteIcon>
-                    </Row>
-                ))}
-            </ListContainer>
-        </div>
-
-    )
+        <ListContainer>
+            {todoList?.map((todo) => (
+                <Row key={todo._id} isCompleted={todo.completed} onClick={() => updateTodo(todo._id)}>
+                    <Text onClick={() => updateTodo(todo._id)} isCompleted={todo.completed}>
+                        {todo.text}
+                    </Text>
+                    <DeleteIcon onClick={() => deleteTodo(todo._id)}>X</DeleteIcon>
+                </Row>
+            ))}
+        </ListContainer>
+    );
 }
 
-export default TodoList 
+export default TodoList;

@@ -17,8 +17,8 @@ export const LegendContainer = styled.ul`
 
 export const BulletPoint = styled.li`
   background-color: ${(props) =>
-    props.type === "first" ? "#0CCE6B" : "#DCED31"};
-  color: ${(props) => (props.type === "first" ? "white" : "black")};
+    props.type === "first" ? "#DCED31" : "#0CCE6B"};
+  color: ${(props) => (props.type === "first" ? "black" : "white")};
   border-radius: 8px;
   padding: 8px 12px;
   text-align: center;
