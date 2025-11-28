@@ -20,6 +20,7 @@ export const BulletPoint = styled.li`
   background-color: ${(props) =>
     props.type === "first" ? "#DCED31" : "#0CCE6B"};
   color: ${(props) => (props.type === "first" ? "black" : "white")};
+  text-decoration: ${(props) => (props.type === "first" ? "none" : "line-through")};
   border-radius: 8px;
   padding: 8px 12px;
   text-align: center;
