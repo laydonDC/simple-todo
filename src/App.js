@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import Todo from './components/Todo';
-import Form from './components/Form';
 
 function App() {
   return (

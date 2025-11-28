@@ -3,11 +3,13 @@ import { Container } from './styles';
 import Form from '../Form';
 
 function Todo() {
+  const [input, setInput] = React.useState('');
+  console.log(input, "input value");
   return (
     <Container>
         <h2>List of Todos</h2>
         {/*Form Component*/}
-        <Form />
+        <Form input = {input} setInput = {setInput}/>
         {/*TodoList*/}
         {/*Legend*/}
         {/*Author Component*/}
